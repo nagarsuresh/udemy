@@ -1,0 +1,24 @@
+<div class="card">
+  <div class="card-header">
+    String Interpolation
+  </div>
+  <div class="card-block">
+    <p>
+      {{stringInterpolation}} | {{numberInterpolation}}
+    </p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    Property Binding
+  </div>
+  <div class="card-block">
+    <input type="text" [value]="stringInterpolation">
+
+    <p [ngClass]="{badge:true}">This is badge</p>
+    <p [ngStyle]="{color:'red'}">This is badge</p>
+  </div>
+</div>
+
+
