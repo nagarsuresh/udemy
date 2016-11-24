@@ -10,6 +10,9 @@ import { OtherComponent } from './other/other.component';
 import { AnotherComponent } from './other/another.component';
 import { DatabindingComponent } from './databinding/databinding.component';
 import { ClarityComponent } from './clarity/clarity.component';
+import { PropertyBindingComponent } from './databinding/property-binding.component';
+import { EventBindingComponent } from './databinding/event-binding.component';
+import { LifecycleComponent } from './lifecycle/lifecycle.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,11 @@ import { ClarityComponent } from './clarity/clarity.component';
     OtherComponent,
     AnotherComponent,
     DatabindingComponent,
-    ClarityComponent
+    ClarityComponent,
+    PropertyBindingComponent,
+    PropertyBindingComponent,
+    EventBindingComponent,
+    LifecycleComponent
   ],
   imports: [
     BrowserModule,

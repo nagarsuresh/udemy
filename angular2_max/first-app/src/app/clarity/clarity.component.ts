@@ -23,15 +23,15 @@ export class ClarityComponent implements OnInit {
   }
 
   onTabSelected(): void{
-    console.log("Tab selected");
+    // console.log("Tab selected");
   }
 
   onTabContentActivated(): void{
-    console.log("onTabContentActivated");
+    // console.log("onTabContentActivated");
   }
 
   onTabIndexChanged(): void{
-    console.log("onTabIndexChanged");
+    // console.log("onTabIndexChanged");
   }
 
 }

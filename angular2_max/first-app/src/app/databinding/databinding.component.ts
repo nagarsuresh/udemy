@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'fa-databinding',
@@ -7,12 +7,19 @@ import { Component} from '@angular/core';
 })
 export class DatabindingComponent {
 
-  stringInterpolation:string = "This is string interpolation";
-  numberInterpolation:number = 2;
+  stringInterpolation: string = "This is string interpolation";
+  numberInterpolation: number = 2;
 
-  pClass:string = "badge warning";
+  pClass: string = "badge warning";
+
+  result: number = 0;
 
   constructor() { }
+
+
+  onButtonClick(value: string): void {
+    alert("Custom event - received " + value);
+  }
 
 
 }

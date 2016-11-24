@@ -15,10 +15,28 @@
   </div>
   <div class="card-block">
     <input type="text" [value]="stringInterpolation">
-
     <p [ngClass]="{badge:true}">This is badge</p>
     <p [ngStyle]="{color:'red'}">This is badge</p>
+
+    <label>Number : </label> <input type="text" [(ngModel)]="result">
+
   </div>
-</div>
 
+  <div class="card">
+    <div class="card-header">
+      Custom property binding
+    </div>
+    <div class="card-block">
+      You entered
+      <fa-property-binding [result]="result"></fa-property-binding>
+    </div>
+  </div>
 
+  <div class="card">
+    <div class="card-header">
+      Event Binding
+    </div>
+    <div class="card-block">
+      <fa-event-binding (clicked)="onButtonClick($event)"></fa-event-binding>
+    </div>
+  </div>  
