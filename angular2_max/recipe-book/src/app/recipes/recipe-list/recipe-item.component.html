@@ -1,11 +1,11 @@
-<a href="javascript://" class="card clickable">
-  <div class="">
-    <img src="{{recipe.imagePath}}"/>
+<a [routerLink]="[recipe.id]" routerLinkActive="active" class="list-group-item clearfix">
+  <div class="pull-left">
+    <h4 class="list-group-item-heading">{{recipe.name}}</h4>
+    <p class="list-group-item-text">{{recipe.description}}</p>
   </div>
-  <div class="card-block">
-    <div class="card-title">{{recipe.name}}</div>
-    <p class="card-text">
-      {{recipe.description}}
-    </p>
-  </div>
+  <span class="pull-right">
+      <img class="img-responsive"
+           src="{{recipe.imagePath}}"
+           style="max-height: 50px;"/>
+  </span>
 </a>

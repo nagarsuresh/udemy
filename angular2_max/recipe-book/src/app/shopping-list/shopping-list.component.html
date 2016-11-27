@@ -3,7 +3,13 @@
     <rb-shopping-list-add></rb-shopping-list-add>
     <hr>
     <ul class="list-group">
-      <a class="list-group-item" style="cursor: pointer"></a>
+      <a class="list-group-item" style="cursor: pointer" *ngFor="let item of items">{{item.name}} ({{item.amount}})</a>
     </ul>
   </div>
 </div>
+
+<div class="pull-right">
+  <button class="btn" (click)="onBack()">Back</button>
+</div>
+
+

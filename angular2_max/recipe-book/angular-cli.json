@@ -19,11 +19,10 @@
       "mobile": false,
       "styles": [
         "styles.css",
-        "../node_modules/clarity-icons/clarity-icons.min.css",
-        "../node_modules/clarity-ui/clarity-ui.min.css"
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css"
       ],
       "scripts": [
-        "../node_modules/clarity-icons/clarity-icons.min.js"
+        
       ],
       "environments": {
         "source": "environments/environment.ts",
