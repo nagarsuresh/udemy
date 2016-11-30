@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ShoppingListService } from './shopping-list.service';
-import { Ingredient } from '../recipes/ingredient';
+import { Ingredient } from "../shared";
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs/Rx';
 
@@ -10,9 +10,10 @@ import { Subscription } from 'rxjs/Rx';
 })
 export class ShoppingListComponent implements OnInit {
 
-  subscription:Subscription;
+  subscription: Subscription;
   items: Ingredient[] = [];
-  selectedRecipeId:string = null;
+  selectedItem: Ingredient;
+  selectedRecipeId: string = null;
 
   constructor(private sls: ShoppingListService, private route: ActivatedRoute, private router: Router) { }
 
@@ -25,12 +26,20 @@ export class ShoppingListComponent implements OnInit {
     )
   }
 
-  onBack():void{
-    if(this.selectedRecipeId){
+  onBack(): void {
+    if (this.selectedRecipeId) {
       this.router.navigate(['/recipes', this.selectedRecipeId]);
     } else {
       this.router.navigate(['/recipes']);
     }
+  }
+
+  onItemSelect(item: Ingredient): void {
+    this.selectedItem = item;
+  }
+
+  onClear(): void {
+    this.selectedItem = null;
   }
 
 
