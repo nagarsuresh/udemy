@@ -10,7 +10,7 @@ export const RECIPE_ROUTES: Route[] = [
     },
     {
         path: 'new',
-        component: RecipeDetailComponent
+        component: RecipeEditComponent
     },
     {
         path: ':id',

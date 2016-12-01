@@ -40,12 +40,14 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
         let recipeName: string = null;
         let imageUrl: string = null;
         let content: string = null;
+        let recipeId:number = null;
         let recipeIngredients: FormArray = new FormArray([]);
 
         if (!this.isNew) {
             recipeName = this.recipe.name;
             imageUrl = this.recipe.imagePath;
             content = this.recipe.description;
+            recipeId = this.recipe.id;
 
             this.recipe.ingredients.forEach((ing) => {
                 recipeIngredients.push(this.fb.group({
@@ -56,7 +58,7 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
         }
 
         this.recipeForm = this.fb.group({
-            id : [this.recipe.id],
+            id : [recipeId],
             name: [recipeName, Validators.required],
             imagePath: [imageUrl, Validators.required],
             description: [content, Validators.required],
@@ -77,6 +79,7 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
         var r = this.recipeForm.value;
         if (this.isNew) {
             this.rs.add(r);
+            this.goBack();
         } else {
             this.rs.update(r);
             this.goBack();
