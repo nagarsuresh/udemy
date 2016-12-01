@@ -13,7 +13,8 @@ import { Observable } from "rxjs/Rx";
   templateUrl: 'data-driven.component.html'
 })
 export class DataDrivenComponent {
-  myForm: FormGroup;
+    myForm: FormGroup;
+    fetching: Boolean = false;  
 
   genders = [
     'male',
@@ -38,7 +39,7 @@ export class DataDrivenComponent {
 
     this.myForm = formBuilder.group({
       'userData': formBuilder.group({
-        'username': ['Max', [Validators.required, this.exampleValidator]],
+        'username': ['Max', [Validators.required], this.userAsyncValidator],
         'email': ['', [
           Validators.required,
           Validators.pattern("[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
@@ -51,8 +52,13 @@ export class DataDrivenComponent {
       ])
     });
 
+    this.myForm.getError
+
     this.myForm.statusChanges.subscribe(
-      (data: any) => console.log(data)
+        (data: any) => {
+            console.log(data);
+            this.fetching = (data === 'PENDING');
+        }
     );
   }
 
@@ -65,11 +71,20 @@ export class DataDrivenComponent {
     console.log(this.myForm);
   }
 
-  exampleValidator(control: FormControl): {[s: string]: boolean} {
-    if (control.value === 'Example') {
-      return {example: true};
-    }
-    return null;
+userAsyncValidator(control: FormControl): Promise<any> | Observable<any> {
+    const promise = new Promise<any>(
+      (resolve, reject) => {
+        console.log("Hitting Server to validate username!!!");
+        setTimeout(() => {
+          if (control.value === 'Suresh') {
+            resolve({'usernameTaken': true});
+          } else {
+            resolve(null);
+          }
+        }, 1500);
+      }
+    );
+    return promise;
   }
 
   asyncExampleValidator(control: FormControl): Promise<any> | Observable<any> {
@@ -78,7 +93,7 @@ export class DataDrivenComponent {
         console.log("Hitting Server to validate!!!");
         setTimeout(() => {
           if (control.value === 'Example') {
-            resolve({'invalid': true});
+            resolve({'usernameTaken': true});
           } else {
             resolve(null);
           }
