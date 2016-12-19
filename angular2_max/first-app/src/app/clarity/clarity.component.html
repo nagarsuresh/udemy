@@ -1,0 +1,35 @@
+<h3>Tabs</h3>
+<clr-tabs (clrTabsCurrentTabLinkChanged)="onTabSelected($event)" (clrTabsCurrentTabIndexChanged)="onTabIndexChanged($event)"
+  (clrTabsCurrentTabContentChanged)="onTabContentActivated($event)">
+  <clr-tab-link [clrTabLinkId]="'link1'" [clrTabLinkActive]="true">Dashboard</clr-tab-link>
+  <clr-tab-link>Management</clr-tab-link>
+  <clr-tab-link>Cloud</clr-tab-link>
+
+  <clr-tab-content [clrTabContentId]="'content1'" [clrTabContentActive]="true">
+    <p>Content for Dashboard tab. Here is a <a href="javascript://">link</a> that can be accessed via clicking or through keyboard
+      via tabbing.</p>
+  </clr-tab-content>
+  <clr-tab-content>
+    <p>Content for Management tab.</p>
+  </clr-tab-content>
+  <clr-tab-content>
+    <p>Content for Cloud tab.</p>
+  </clr-tab-content>
+</clr-tabs>
+
+
+<br/>
+<h3>DataGrid</h3>
+
+
+<clr-datagrid>
+    <clr-dg-column>User ID</clr-dg-column>
+    <clr-dg-column>Name</clr-dg-column>
+
+    <clr-dg-row *ngFor="let user of users">
+        <clr-dg-cell>{{user.id}}</clr-dg-cell>
+        <clr-dg-cell>{{user.name}}</clr-dg-cell>
+    </clr-dg-row>
+
+    <clr-dg-footer>{{users.length}} users</clr-dg-footer>
+</clr-datagrid>
