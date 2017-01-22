@@ -13,6 +13,8 @@ import { ClarityComponent } from './clarity/clarity.component';
 import { PropertyBindingComponent } from './databinding/property-binding.component';
 import { EventBindingComponent } from './databinding/event-binding.component';
 import { LifecycleComponent } from './lifecycle/lifecycle.component';
+import { ClarityWizardComponent } from './clarity/clarity-wizard/clarity-wizard.component';
+import { RefreshComponent } from './refresh/refresh.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { LifecycleComponent } from './lifecycle/lifecycle.component';
     PropertyBindingComponent,
     PropertyBindingComponent,
     EventBindingComponent,
-    LifecycleComponent
+    LifecycleComponent,
+    ClarityWizardComponent,
+    RefreshComponent
   ],
   imports: [
     BrowserModule,
